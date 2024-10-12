@@ -19,12 +19,16 @@ Heaps
 Tries
 
 
-#Complexity Analysis
+# Complexity Analysis
 Each data structure implementation includes time and space complexity analysis for the major operations, helping you understand their performance characteristics:
 
 Arrays: Access - O(1), Insertion - O(n), Deletion - O(n)
+
 Linked Lists: Access - O(n), Insertion - O(1), Deletion - O(1)
+
 Stacks/Queues: Access - O(n), Insertion - O(1), Deletion - O(1)
+
 Hash Tables: Access - O(1), Insertion - O(1), Deletion - O(1)
+
 Trees/Graphs/Heaps/Tries: Various complexities based on operation and structure.
 
