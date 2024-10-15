@@ -58,3 +58,31 @@ var search = function(nums, target) {
 
     return -1;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let forwardArray = [];
+    let resArray = [];
+    let start = 1;
+    let end = 1;
+    resArray[nums.length-1] = 1;
+
+    for(let i=0; i < nums.length; i++) {
+        forwardArray.push(start);
+        start *= nums[i];
+        end *= nums[nums.length-(i+1)]
+
+        if(nums.length-(i+2) >= 0) {
+            resArray[nums.length-(i+2)] = end;
+        }
+    }
+
+    for(let i=0; i<resArray.length; i++) {
+        resArray[i] = resArray[i] * forwardArray[i];
+    }
+
+    return resArray;
+};
