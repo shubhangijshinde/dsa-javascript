@@ -23,3 +23,35 @@ var floodFill = function(image, sr, sc, color) {
 
     return fill(image, sr, sc);
 };
+
+/**
+ * 1041. Robot Bounded In Circle
+ * @param {string} instructions
+ * @return {boolean}
+ */
+var isRobotBounded = function(instructions) {
+    const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+	let head = 0;
+	let x = 0;
+	let y = 0;
+
+    for(let instruction of instructions) {
+        if(instruction == 'G') {
+            x = dirs[head][0];
+            y = dirs[head][1];
+        }
+        else if(instruction == 'L') {
+            head = (4 + head - 1) % 4;
+        }
+        else {
+            head = (4 + head + 1) % 4;
+        }
+
+        console.log(`head: ${head}, X:${x}, Y:${y}`)
+    }
+
+    const isAtOrigin = (x == 0 && y == 0);
+    const isHeadingNorth = head === 0;
+
+    return isAtOrigin || (!isHeadingNorth);
+};
