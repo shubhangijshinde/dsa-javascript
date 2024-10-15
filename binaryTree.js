@@ -29,3 +29,35 @@ var lowestCommonAncestor = function(root, p, q) {
 
     return root;
 };
+
+/**
+ * 113. Path Sum II
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number[][]}
+ */
+var pathSum = function(root, targetSum) {
+
+    let res = [];
+    
+    const getArray = (arr, currRoot, sum) => {
+        if(currRoot == null) return [];
+
+        sum += currRoot.val;
+        arr.push(currRoot.val);
+
+        if(!currRoot.left && !currRoot.right && sum == targetSum) {
+            res.push([...arr]);
+        }
+
+        getArray(arr, currRoot.left, sum)
+        getArray(arr, currRoot.right, sum)
+        console.log("arr before: ", arr);
+        arr.pop();
+        console.log("arr after: ", arr);
+    }
+
+    getArray([], root, 0);
+
+    return res;
+};
